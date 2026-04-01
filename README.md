@@ -2,11 +2,19 @@
 
 This repo base on excellent work of https://github.com/ette9844 in https://github.com/ette9844/textonly-twitter 
 
-Adding features that I want but were missing
+I added features that I want but were missing
 
-![textonly twitter screenshot](https://github.com/ette9844/textonly-twitter/blob/master/images/icon-128.png?raw=true)
+![textonly twitter screenshot](images/icon-128.png?raw=true)
 
 Chrome extension to hide twitter media. Make your twitter simpler.. Download it from [Chrome Webstore](https://chrome.google.com/webstore/detail/textonly-twitter/dbonhfkddcpbknmccjclfigmfkpimfkf).
+
+
+# Screenshots
+
+![textonly twitter screenshot](images/store%20banner.png)
+![textonly twitter popup](images/popup.png)
+
+# Features:
 
 Current options in the popup:
 - Text-only mode
@@ -27,10 +35,7 @@ Behavior notes:
 - When Hide images is enabled, image posts collapse to a "+ Show image" placeholder and expand on hover
 - When Hide videos is enabled, video posts collapse to a "+ Show video" placeholder and expand on hover
 
-# Screenshots
 
-![textonly twitter screenshot](https://github.com/ette9844/textonly-twitter/blob/master/images/store%20banner.png?raw=true)
-![textonly twitter popup](https://github.com/ette9844/textonly-twitter/blob/master/images/popup.png?raw=true)
 
 # Change Log
 
