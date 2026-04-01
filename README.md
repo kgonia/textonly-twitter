@@ -1,4 +1,8 @@
-# Textonly Twitter
+# Textonly X
+
+This repo base on excellent work of https://github.com/ette9844 in https://github.com/ette9844/textonly-twitter 
+
+Adding features that I want but were missing
 
 ![textonly twitter screenshot](https://github.com/ette9844/textonly-twitter/blob/master/images/icon-128.png?raw=true)
 
@@ -35,6 +39,11 @@ Chrome extension to hide twitter media. Make your twitter simpler. Download it f
 
 - modify css to match latest x version
 - add x domain in manifest
+
+## 1.16 (2026-04-01)
+
+- add a setting to control whether tweet profile photos are hidden
+- default to showing profile photos so text-only mode is less aggressive
 
 ## 1.15 (2024-07-09)
 

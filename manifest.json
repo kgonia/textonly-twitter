@@ -1,7 +1,7 @@
 {
   "name": "Textonly Twitter",
   "description": "Enjoy your text-only twitter! made by ette9844",
-  "version": "1.15",
+  "version": "1.16",
   "manifest_version": 3,
   "content_scripts": [
     {
@@ -20,7 +20,8 @@
     }
   ],
   "permissions": [
-    "storage"
+    "storage",
+    "activeTab"
   ],
   "action": {
     "default_popup": "/popup/popup.html",

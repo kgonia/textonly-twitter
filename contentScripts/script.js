@@ -4,12 +4,14 @@ const $body = $("body");
 let setting = {};
 
 chrome.storage.sync.get(
-  ["textonly", "grayscaleEmoji", "hideEmoji", "mediaSize"],
+  ["textonly", "grayscaleEmoji", "hideEmoji", "hideProfilePhotos", "mediaSize"],
   function (result) {
     setting.textonly = result.textonly != null ? result.textonly : true;
     setting.grayscaleEmoji =
       result.grayscaleEmoji != null ? result.grayscaleEmoji : true;
     setting.hideEmoji = result.hideEmoji != null ? result.hideEmoji : true;
+    setting.hideProfilePhotos =
+      result.hideProfilePhotos != null ? result.hideProfilePhotos : false;
     setting.mediaSize = result.mediaSize != null ? result.mediaSize : 100;
     renderAll(setting);
   }
@@ -40,6 +42,14 @@ function renderHideEmoji(hideEmoji) {
   }
 }
 
+function renderHideProfilePhotos(hideProfilePhotos) {
+  if (hideProfilePhotos) {
+    $body.addClass("tt-hide-profile-photos");
+  } else {
+    $body.removeClass("tt-hide-profile-photos");
+  }
+}
+
 function renderMediaSize(mediaSize) {
   $body.removeClass(
     "tt-media-size-100 tt-media-size-75 tt-media-size-50 tt-media-size-25 tt-media-size-0"
@@ -51,6 +61,7 @@ function renderAll(setting) {
   renderTextonly(setting.textonly);
   renderGrayscaleEmoji(setting.grayscaleEmoji);
   renderHideEmoji(setting.hideEmoji);
+  renderHideProfilePhotos(setting.hideProfilePhotos);
   renderMediaSize(setting.mediaSize);
 }
 
@@ -70,6 +81,9 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       break;
     case "RENDER_HIDE_EMOJI":
       renderHideEmoji(setting.hideEmoji);
+      break;
+    case "RENDER_HIDE_PROFILE_PHOTOS":
+      renderHideProfilePhotos(setting.hideProfilePhotos);
       break;
     case "RENDER_MEDIA_SIZE":
       renderMediaSize(setting.mediaSize);

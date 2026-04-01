@@ -45,7 +45,6 @@
   color: #E7E9EA !important;
 }
 
-.tt-textonly .r-onrtq4,
 .tt-textonly .r-1hwvwag,
 .tt-textonly .r-jgbqyi,
 .tt-textonly .r-1x2qdy1,
@@ -54,6 +53,12 @@
 .tt-textonly .r-1b7u577,
 .tt-textonly .r-1rq6c10,
 .tt-textonly .r-1hbzrj0 {
+  display: none !important;
+  flex-basis: 0px !important;
+}
+
+.tt-textonly.tt-hide-profile-photos article div:has(> [data-testid="Tweet-User-Avatar"]),
+.tt-textonly.tt-hide-profile-photos article [data-testid="Tweet-User-Avatar"] {
   display: none !important;
   flex-basis: 0px !important;
 }
