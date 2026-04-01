@@ -6,7 +6,20 @@ Adding features that I want but were missing
 
 ![textonly twitter screenshot](https://github.com/ette9844/textonly-twitter/blob/master/images/icon-128.png?raw=true)
 
-Chrome extension to hide twitter media. Make your twitter simpler. Download it from [Chrome Webstore](https://chrome.google.com/webstore/detail/textonly-twitter/dbonhfkddcpbknmccjclfigmfkpimfkf).
+Chrome extension to hide twitter media. Make your twitter simpler.. Download it from [Chrome Webstore](https://chrome.google.com/webstore/detail/textonly-twitter/dbonhfkddcpbknmccjclfigmfkpimfkf).
+
+Current options in the popup:
+- Text-only mode
+- Grayscale emoji
+- Hide emoji
+- Hide profile photos
+- Hide quotes
+- Media box size
+
+Behavior notes:
+- Profile photos are visible by default
+- Quotes can be hidden independently from media
+- When Hide quotes is enabled, quote cards collapse to a "+ Show quote" placeholder and expand on hover
 
 # Screenshots
 
@@ -40,11 +53,18 @@ Chrome extension to hide twitter media. Make your twitter simpler. Download it f
 - modify css to match latest x version
 - add x domain in manifest
 
+## 1.15 (2024-07-09)
+
+- change menu selector in detail
+
 ## 1.16 (2026-04-01)
 
 - add a setting to control whether tweet profile photos are hidden
 - default to showing profile photos so text-only mode is less aggressive
 
-## 1.15 (2024-07-09)
+## 1.17 (2026-04-01)
 
-- change menu selector in detail
+- add a setting to control whether quoted posts are hidden
+- hide quotes independently from media hiding
+- show a "+ Show quote" placeholder and reveal the quote on hover
+- narrow media selectors so quote handling does not interfere with image hiding

@@ -5,6 +5,7 @@ $(function () {
   const $grayscaleEmojiInput = $('#grayscale-emoji-input');
   const $hideEmojiInput = $('#hide-emoji-input');
   const $hideProfilePhotosInput = $('#hide-profile-photos-input');
+  const $hideQuotesInput = $('#hide-quotes-input');
   const $mediaSizeSelect = $('#media-size-select');
   const $whitebox = $(".whitebox");
 
@@ -20,11 +21,12 @@ $(function () {
     });
   }
 
-  chrome.storage.sync.get(['textonly', 'grayscaleEmoji', 'hideEmoji', 'hideProfilePhotos', 'mediaSize'], function (result) {
+  chrome.storage.sync.get(['textonly', 'grayscaleEmoji', 'hideEmoji', 'hideProfilePhotos', 'hideQuotes', 'mediaSize'], function (result) {
     setting.textonly = result.textonly != null ? result.textonly : true;
     setting.grayscaleEmoji = result.grayscaleEmoji != null ? result.grayscaleEmoji : true;
     setting.hideEmoji = result.hideEmoji != null ? result.hideEmoji : true;
     setting.hideProfilePhotos = result.hideProfilePhotos != null ? result.hideProfilePhotos : false;
+    setting.hideQuotes = result.hideQuotes != null ? result.hideQuotes : false;
     setting.mediaSize = result.mediaSize != null ? result.mediaSize : 100;
 
     setting.textonly ? $whitebox.hide() : $whitebox.show();
@@ -32,6 +34,7 @@ $(function () {
     $grayscaleEmojiInput.prop('checked', setting.grayscaleEmoji);
     $hideEmojiInput.prop('checked', setting.hideEmoji);
     $hideProfilePhotosInput.prop('checked', setting.hideProfilePhotos);
+    $hideQuotesInput.prop('checked', setting.hideQuotes);
     $mediaSizeSelect.val(setting.mediaSize);
   });
 
@@ -59,6 +62,12 @@ $(function () {
     setting.hideProfilePhotos = this.checked ? true : false;
     chrome.storage.sync.set({ hideProfilePhotos: setting.hideProfilePhotos }, function () {
       sendToActiveTab('RENDER_HIDE_PROFILE_PHOTOS');
+    });
+  });
+  $hideQuotesInput.on('change', function () {
+    setting.hideQuotes = this.checked ? true : false;
+    chrome.storage.sync.set({ hideQuotes: setting.hideQuotes }, function () {
+      sendToActiveTab('RENDER_HIDE_QUOTES');
     });
   });
   $mediaSizeSelect.on('change', function () {
