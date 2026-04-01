@@ -1,7 +1,7 @@
 {
-  "name": "Textonly Twitter",
-  "description": "Enjoy your text-only twitter! made by ette9844",
-  "version": "1.17",
+  "name": "Textonly X",
+  "description": "Enjoy your text-only x! made by ette9844, extended by kgonia",
+  "version": "1.19",
   "manifest_version": 3,
   "content_scripts": [
     {

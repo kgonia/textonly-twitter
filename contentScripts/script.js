@@ -4,7 +4,7 @@ const $body = $("body");
 let setting = {};
 
 chrome.storage.sync.get(
-  ["textonly", "grayscaleEmoji", "hideEmoji", "hideProfilePhotos", "hideQuotes", "mediaSize"],
+  ["textonly", "grayscaleEmoji", "hideEmoji", "hideProfilePhotos", "hideQuotes", "hideImages", "hideVideos", "mediaSize"],
   function (result) {
     setting.textonly = result.textonly != null ? result.textonly : true;
     setting.grayscaleEmoji =
@@ -13,6 +13,8 @@ chrome.storage.sync.get(
     setting.hideProfilePhotos =
       result.hideProfilePhotos != null ? result.hideProfilePhotos : false;
     setting.hideQuotes = result.hideQuotes != null ? result.hideQuotes : false;
+    setting.hideImages = result.hideImages != null ? result.hideImages : false;
+    setting.hideVideos = result.hideVideos != null ? result.hideVideos : true;
     setting.mediaSize = result.mediaSize != null ? result.mediaSize : 100;
     renderAll(setting);
   }
@@ -59,6 +61,22 @@ function renderHideQuotes(hideQuotes) {
   }
 }
 
+function renderHideImages(hideImages) {
+  if (hideImages) {
+    $body.addClass("tt-hide-images");
+  } else {
+    $body.removeClass("tt-hide-images");
+  }
+}
+
+function renderHideVideos(hideVideos) {
+  if (hideVideos) {
+    $body.addClass("tt-hide-videos");
+  } else {
+    $body.removeClass("tt-hide-videos");
+  }
+}
+
 function renderMediaSize(mediaSize) {
   $body.removeClass(
     "tt-media-size-100 tt-media-size-75 tt-media-size-50 tt-media-size-25 tt-media-size-0"
@@ -72,6 +90,8 @@ function renderAll(setting) {
   renderHideEmoji(setting.hideEmoji);
   renderHideProfilePhotos(setting.hideProfilePhotos);
   renderHideQuotes(setting.hideQuotes);
+  renderHideImages(setting.hideImages);
+  renderHideVideos(setting.hideVideos);
   renderMediaSize(setting.mediaSize);
 }
 
@@ -97,6 +117,12 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       break;
     case "RENDER_HIDE_QUOTES":
       renderHideQuotes(setting.hideQuotes);
+      break;
+    case "RENDER_HIDE_IMAGES":
+      renderHideImages(setting.hideImages);
+      break;
+    case "RENDER_HIDE_VIDEOS":
+      renderHideVideos(setting.hideVideos);
       break;
     case "RENDER_MEDIA_SIZE":
       renderMediaSize(setting.mediaSize);

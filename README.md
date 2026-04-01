@@ -14,12 +14,18 @@ Current options in the popup:
 - Hide emoji
 - Hide profile photos
 - Hide quotes
+- Hide images
+- Hide videos
 - Media box size
 
 Behavior notes:
 - Profile photos are visible by default
-- Quotes can be hidden independently from media
+- Images are visible by default
+- Videos are hidden by default
+- Quotes can be hidden independently from images and videos
 - When Hide quotes is enabled, quote cards collapse to a "+ Show quote" placeholder and expand on hover
+- When Hide images is enabled, image posts collapse to a "+ Show image" placeholder and expand on hover
+- When Hide videos is enabled, video posts collapse to a "+ Show video" placeholder and expand on hover
 
 # Screenshots
 
@@ -68,3 +74,16 @@ Behavior notes:
 - hide quotes independently from media hiding
 - show a "+ Show quote" placeholder and reveal the quote on hover
 - narrow media selectors so quote handling does not interfere with image hiding
+
+## 1.18 (2026-04-01)
+
+- split media controls into separate image and video settings
+- add Hide images, disabled by default
+- add Hide videos, enabled by default
+- change the video placeholder from "+ Show media" to "+ Show video"
+- add a "+ Show image" placeholder for hidden images
+
+
+## 1.19 (2026-04-01)
+
+- hide "+ Show image" and "+ Show video" placeholders on hover

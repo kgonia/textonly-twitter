@@ -1,4 +1,5 @@
-.tt-textonly article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="tweetPhoto"], [data-testid="videoComponent"], [aria-label="Image"], video) {
+.tt-textonly.tt-hide-images article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([aria-label="Image"]),
+.tt-textonly.tt-hide-videos article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="videoComponent"], video) {
   visibility: hidden !important;
   height: 15px !important;
   width: 150px !important;
@@ -8,40 +9,56 @@
   display: none !important;
 }
 
-.tt-textonly.tt-media-size-100 article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="tweetPhoto"], [data-testid="videoComponent"], [aria-label="Image"], video):hover {
+.tt-textonly.tt-hide-images.tt-media-size-100 article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([aria-label="Image"]):hover,
+.tt-textonly.tt-hide-videos.tt-media-size-100 article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="videoComponent"], video):hover {
   visibility: visible !important;
   height: fit-content !important;
   width: 100% !important;
 }
 
-.tt-textonly.tt-media-size-75 article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="tweetPhoto"], [data-testid="videoComponent"], [aria-label="Image"], video):hover {
+.tt-textonly.tt-hide-images.tt-media-size-75 article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([aria-label="Image"]):hover,
+.tt-textonly.tt-hide-videos.tt-media-size-75 article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="videoComponent"], video):hover {
   visibility: visible !important;
   height: fit-content !important;
   width: 75% !important;
 }
 
-.tt-textonly.tt-media-size-50 article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="tweetPhoto"], [data-testid="videoComponent"], [aria-label="Image"], video):hover {
+.tt-textonly.tt-hide-images.tt-media-size-50 article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([aria-label="Image"]):hover,
+.tt-textonly.tt-hide-videos.tt-media-size-50 article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="videoComponent"], video):hover {
   visibility: visible !important;
   height: fit-content !important;
   width: 50% !important;
 }
 
-.tt-textonly.tt-media-size-25 article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="tweetPhoto"], [data-testid="videoComponent"], [aria-label="Image"], video):hover {
+.tt-textonly.tt-hide-images.tt-media-size-25 article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([aria-label="Image"]):hover,
+.tt-textonly.tt-hide-videos.tt-media-size-25 article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="videoComponent"], video):hover {
   visibility: visible !important;
   height: fit-content !important;
   width: 25% !important;
 }
 
-.tt-textonly:not(.tt-media-size-0) article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="tweetPhoto"], [data-testid="videoComponent"], [aria-label="Image"], video):before {
+.tt-textonly.tt-hide-images:not(.tt-media-size-0) article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([aria-label="Image"])::before {
   visibility: visible !important;
-  content: '+ Show media' !important;
+  content: '+ Show image' !important;
 }
 
-.tt-textonly:not(.tt-media-size-0) div.r-yfoy6g article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="tweetPhoto"], [data-testid="videoComponent"], [aria-label="Image"], video)::before {
+.tt-textonly.tt-hide-videos:not(.tt-media-size-0) article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="videoComponent"], video)::before {
+  visibility: visible !important;
+  content: '+ Show video' !important;
+}
+
+.tt-textonly.tt-hide-images:not(.tt-media-size-0) article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([aria-label="Image"]):hover::before,
+.tt-textonly.tt-hide-videos:not(.tt-media-size-0) article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="videoComponent"], video):hover::before {
+  display: none !important;
+}
+
+.tt-textonly.tt-hide-images:not(.tt-media-size-0) div.r-yfoy6g article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([aria-label="Image"])::before,
+.tt-textonly.tt-hide-videos:not(.tt-media-size-0) div.r-yfoy6g article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="videoComponent"], video)::before {
   color: #F7F9F9 !important;
 }
 
-.tt-textonly:not(.tt-media-size-0) div.r-kemksi article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="tweetPhoto"], [data-testid="videoComponent"], [aria-label="Image"], video)::before {
+.tt-textonly.tt-hide-images:not(.tt-media-size-0) div.r-kemksi article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([aria-label="Image"])::before,
+.tt-textonly.tt-hide-videos:not(.tt-media-size-0) div.r-kemksi article[aria-labelledby]:not([aria-labelledby=""]) div[aria-labelledby]:not([aria-labelledby=""]):has([data-testid="videoComponent"], video)::before {
   color: #E7E9EA !important;
 }
 

@@ -6,6 +6,8 @@ $(function () {
   const $hideEmojiInput = $('#hide-emoji-input');
   const $hideProfilePhotosInput = $('#hide-profile-photos-input');
   const $hideQuotesInput = $('#hide-quotes-input');
+  const $hideImagesInput = $('#hide-images-input');
+  const $hideVideosInput = $('#hide-videos-input');
   const $mediaSizeSelect = $('#media-size-select');
   const $whitebox = $(".whitebox");
 
@@ -21,12 +23,14 @@ $(function () {
     });
   }
 
-  chrome.storage.sync.get(['textonly', 'grayscaleEmoji', 'hideEmoji', 'hideProfilePhotos', 'hideQuotes', 'mediaSize'], function (result) {
+  chrome.storage.sync.get(['textonly', 'grayscaleEmoji', 'hideEmoji', 'hideProfilePhotos', 'hideQuotes', 'hideImages', 'hideVideos', 'mediaSize'], function (result) {
     setting.textonly = result.textonly != null ? result.textonly : true;
     setting.grayscaleEmoji = result.grayscaleEmoji != null ? result.grayscaleEmoji : true;
     setting.hideEmoji = result.hideEmoji != null ? result.hideEmoji : true;
     setting.hideProfilePhotos = result.hideProfilePhotos != null ? result.hideProfilePhotos : false;
     setting.hideQuotes = result.hideQuotes != null ? result.hideQuotes : false;
+    setting.hideImages = result.hideImages != null ? result.hideImages : false;
+    setting.hideVideos = result.hideVideos != null ? result.hideVideos : true;
     setting.mediaSize = result.mediaSize != null ? result.mediaSize : 100;
 
     setting.textonly ? $whitebox.hide() : $whitebox.show();
@@ -35,6 +39,8 @@ $(function () {
     $hideEmojiInput.prop('checked', setting.hideEmoji);
     $hideProfilePhotosInput.prop('checked', setting.hideProfilePhotos);
     $hideQuotesInput.prop('checked', setting.hideQuotes);
+    $hideImagesInput.prop('checked', setting.hideImages);
+    $hideVideosInput.prop('checked', setting.hideVideos);
     $mediaSizeSelect.val(setting.mediaSize);
   });
 
@@ -68,6 +74,18 @@ $(function () {
     setting.hideQuotes = this.checked ? true : false;
     chrome.storage.sync.set({ hideQuotes: setting.hideQuotes }, function () {
       sendToActiveTab('RENDER_HIDE_QUOTES');
+    });
+  });
+  $hideImagesInput.on('change', function () {
+    setting.hideImages = this.checked ? true : false;
+    chrome.storage.sync.set({ hideImages: setting.hideImages }, function () {
+      sendToActiveTab('RENDER_HIDE_IMAGES');
+    });
+  });
+  $hideVideosInput.on('change', function () {
+    setting.hideVideos = this.checked ? true : false;
+    chrome.storage.sync.set({ hideVideos: setting.hideVideos }, function () {
+      sendToActiveTab('RENDER_HIDE_VIDEOS');
     });
   });
   $mediaSizeSelect.on('change', function () {
